@@ -1,0 +1,128 @@
+﻿@model IEnumerable<SodicTask.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+@section styl
+{
+ <style>
+     table {
+         border-collapse: collapse;
+         border-spacing: 0;
+         border: 1px solid #ddd;
+         overflow-x: scroll;
+         height: 150px;
+         width: 150px;
+         overflow-y: scroll;
+         background-color: black;
+     }
+     tbody {
+         height: 80em;
+         overflow: scroll;
+         color: teal;
+         font-size:20px;
+         text-align:center;
+     }
+     th
+     {
+         text-align:center;
+     }
+     a{
+         color:darkblue;
+     }
+     #tr
+     {
+         background-color:darkgrey
+     }
+     #tr_hvr:hover
+     {
+         color: white;
+         background-color:darkred;
+         font-size:30px
+      }
+ </style>
+}
+<h1 class="text-center " >All Product</h1>
+<p>
+    <a asp-action="Create" class="btn btn-info">Create New</a>
+</p>
+<table class="table table-hover table-responsive-lg"  >
+    <thead>
+        <tr class="text-center " id="tr">
+            <th>
+                <a class="btn btn-light">@Html.DisplayNameFor(model => model.ProdId)</a>
+            </th>
+            <th>
+                <a asp-action="Order_Name" asp-controller="product" class="btn btn-light">@Html.DisplayNameFor(model => model.ProdName)</a>
+            </th>
+            <th>
+                <a asp-action="OrderQuantity" asp-controller="product" class="btn btn-light"> @Html.DisplayNameFor(model => model.Quantity)</a>
+            </th>
+            <th>
+                <a asp-action="OrderName" asp-controller="product" class="btn btn-light"> @Html.DisplayNameFor(model => model.ProdDescription)</a>
+            </th>
+            <th>
+                <a class="btn btn-outline-light"> @Html.DisplayNameFor(model => model.ProdMainImg)</a>
+            </th>
+
+            <th>
+                <a class="btn btn-light">Operation</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody class="text-center">
+@foreach (var item in Model) {
+        <tr id="tr_hvr">
+            <td>
+                @Html.DisplayFor(modelItem => item.ProdId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProdName)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProdDescription)
+            </td>
+            <td>
+                @if (item.ProdMainImg != null)
+                {
+                    <img src="../Resources/@item.ProdMainImg" height="130" width="120" class="img-thumbnail" />
+                }
+                else
+                {
+                    <img src="./Resources/DefaultImage.png" height="130" width="120" class="img-thumbnail" />
+
+                }
+            </td>
+     
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProdId" class="btn btn-dark">Edit</a> |
+                 <div>
+                    @using (Html.BeginForm("Details", "ProductImages", FormMethod.Post, new { @class = "form-group", enctype = "multipart/form-data" }))
+                    {
+
+                        <input type="submit" value="ShowImages" class="btn btn-primary" />
+                        <input type="hidden" name="ProdId" value="@item.ProdId" />
+                        <input type="hidden" name="ProdName" value="@item.ProdName" />
+                        <input type="hidden" name="ProdDescription" value="@item.ProdDescription" />
+                        <input type="hidden" name="CatagNo" value="@item.CatagNo" />
+
+                    }
+                </div>
+                <a asp-action="Delete" asp-route-id="@item.ProdId" class="btn btn-danger fun">Delete</a>
+             </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+@section  scripts
+{
+    <script>
+       
+    </script>
+}

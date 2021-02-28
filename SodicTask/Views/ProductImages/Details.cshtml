@@ -1,0 +1,67 @@
+﻿@model IEnumerable<SodicTask.Models.ProductImage>
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details @ViewBag.ProdName</h1>
+<table class="table table-hover table-responsive-lg">
+    <thead>
+
+    </thead>
+    <tbody class="text-center">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <div class="row">
+                        <div class="col-4">
+                            <img height="150" width="150" src="../Resources/@item.ProdImages" class="img-thumbnail" />
+
+                            <h3 style="color: darkseagreen;text-align: center;border: 1px ;border-radius: 20px;" class="btn">
+                                <span style="color:green">
+
+                                </span>
+                            </h3>
+
+                        </div>
+                        <div>
+                            <div>
+                                <h2 style="color:teal;"> @item.ProdId</h2>
+                            </div>
+
+
+
+                            <div>
+                                <button type="button" class="btn btn-warning cart">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    Add to cart
+                                </button>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+@using (Html.BeginForm("Create", "ProductImages", FormMethod.Post, new { @class = "form-group", enctype = "multipart/form-data" }))
+{<div class="form-group">
+        <input type="hidden" value="@ViewBag.productId" name="ProdId"/>
+        <label for="file" class="btn  btn-dark ">Select Image</label>
+        <input id="file" type="file" multiple name="files" accept="image/x-png,image/gif,image/jpeg">
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+    </div>
+
+}
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

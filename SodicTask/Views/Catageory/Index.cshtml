@@ -1,0 +1,362 @@
+﻿@model IEnumerable<SodicTask.Models.Category>
+
+@{
+    ViewBag.title = "All Categories";
+}
+
+<div class="row">
+    <div class="page-header">
+        <a class="btn btn-primary" id="AddNewMain" title="Add" data-placement="bottom">
+            Add New Catageory
+            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>
+        </a>
+
+        <button class="btn btn-success" id="refresh_btn">
+            <i class="fa fa-refresh fa-fw" aria-hidden="true">
+            </i>
+        </button>
+    </div>
+</div>
+<div class="row">
+
+
+    <div class="col-md-6">
+
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <i class="fa fa-code-fork fa-fw" aria-hidden="true"></i>
+                <div class="box-title">All Categories</div>
+
+            </div>
+
+            <div class="box-body">
+                <div>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-search fa-fw" aria-hidden="true"></i>
+                        </span>
+                        <input type="text" class="form-control" id="dep-search" placeholder="Search...">
+                    </div>
+                </div>
+
+                <hr>
+                <div class="bg-primary" id="parent_name" style="display: none; padding: 10px; margin-bottom: 20px">
+                </div>
+
+                <div id="jstree">
+
+                </div>
+
+                <div class="no-tree"></div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class=" col-md-6 ">
+        <div class="row loading-spinner" style="display: none;">
+            <div class="col-md-12 text-center">
+                <i class="fa fa-spinner fa-2x fa-pulse" style="color: #00C0EF; margin-bottom: 20px"></i>
+            </div>
+        </div>
+        <div id="chart_form">
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!--------------------Delete pop------------------------------->
+<div id="MyPopup" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close btn btn-warning" data-dismiss="modal">
+                    &times;
+                </button>
+                <p class="modal-title  " style="text-align: right;font-size: 104%;font-weight: bold;">
+                    Confirm Delete  
+                </p>
+            </div>
+            <div class="modal-body">
+                <p style="text-align: center;font-size: 187%;color: #0192b5;">
+                  Are You Sure   !
+                </p>
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-danger btndelete" id="btndelete_Conf">
+                    Confirm
+                </button>
+                <button type="button" class="btn btn-primary" id="btndelete_close" data-dismiss="modal">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts
+{
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+
+
+    </script>
+    <script>
+
+
+          var data_init_tree = [];
+
+        function sentAjax(_id) {
+                 $.ajax({
+                    url: '@Url.Action("FormCatagPartial", "Catageory")',
+                    type: 'POST',
+                    cache: false,
+                    beforeSend: function () {
+                        $('.loading-spinner').slideDown();
+                    },
+                    data: { id: _id }
+
+                }).done(function (result) {
+                    $('.loading-spinner').slideUp();
+
+                    $('#chart_form').html(result);
+                    //$("#lbl_proj_name").text(txt);
+                    $('#btnDelet').on("click", function () {
+                        $('#MyPopup').modal('toggle');
+
+                     })
+
+
+                });
+
+        }
+
+           function sentAjaxNewChild(_id) {
+                 $.ajax({
+                    url: '@Url.Action("FormCatagPartialNew", "Catageory")',
+                    type: 'POST',
+                    cache: false,
+                    beforeSend: function () {
+                        $('.loading-spinner').slideDown();
+                    },
+                    data: { id: _id }
+
+                }).done(function (result) {
+                    $('.loading-spinner').slideUp();
+
+                    $('#chart_form').html(result);
+                    $('#btnDelet').on("click", function () {
+                        $('#MyPopup').modal('toggle');
+
+                    })
+                });
+
+        }
+
+         function sentAjaxDelet(_id) {
+                 $.ajax({
+                    url: '@Url.Action("Delete", "Catageory")',
+                    type: 'POST',
+                    cache: false,
+                    beforeSend: function () {
+                        $('.loading-spinner').slideDown();
+                    },
+                     data: { id: _id }
+
+                }).done(function (result) {
+                    $('.loading-spinner').slideUp();
+                    console.log("result")
+                    if (result == "True") {
+                        alert("Deleted Suceesfuly ");
+                    }
+                    else {
+                        alert("Cant Deleted As Its Contain Children ");
+
+                    }
+
+                 });
+        }
+
+
+         function handle_click(node, f)
+            {
+                debugger;
+                var _id, txt,hasChild;
+                if (f == true) {
+                     _id = node.id;
+
+                    txt = node.original.text;
+                    if (node.children.length==0)
+                    {
+                        hasChild = false
+                    }
+                    else {
+                        hasChild = true
+                    }
+
+                }
+                else {
+
+                    _id = node[0].CatagNo;
+                    txt = node[0].children[1].outerText
+                    if (node.find('li').length==0) {
+                        hasChild = false;
+                    }
+                    else {
+                        hasChild = true;
+
+                    }
+                }
+
+             sentAjax(_id);
+
+        }
+
+        function handle_dbclick(node, T) {
+
+            var _id;
+            if (node)
+            {
+               _id = node.id;
+                sentAjaxNewChild(_id);
+             }
+
+            }
+
+
+        function noTree() {
+            $('.no-tree').html('<div class="alert alert-info">'
+                + '<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>'
+                + ' No Data Available '
+                + '</div>');
+          }
+          let timer = 0;
+          let delay = 200;
+          let prevent = false;
+          //#region handle click and dblclick
+
+          function CreateTree(data) {
+              debugger;
+              $('#jstree').jstree({
+                  'core': {
+                      'data': data,
+                      'multiple': false,
+                      "animation": false
+                  },
+                  'contextmenu': {
+                      items: function ($node) {
+                          return {
+                              show: {
+                                  separator_before: false,
+                                  separator_after: true,
+                                  label: "Update Catageory ",
+                                  icon: 'fa fa-edit fa-fw',
+                                  action: function (obj) {
+                                      handle_click($node, true)
+                                  }
+                              },
+                              create: {
+                                  separator_before: false,
+                                  separator_after: false,
+                                  label: "Add New",
+                                  icon: 'fa fa-plus fa-fw',
+                                  action: function (obj) {
+                                      handle_dbclick($node, true)
+                                  }
+                              },
+                          };
+                      }
+                  },
+                  'search': {
+                      case_sensitive: false,
+                      show_only_matches: true,
+                  },
+                  plugins: ["contextmenu", "search", "themes", "html_data", "ui", "crrm"]
+
+              });
+              $('#refresh_btn').removeClass('disabled').find('i').removeClass('fa-spin');
+
+
+          }
+
+        $(document).ready(function () {
+
+            $('#btndelete_Conf').on("click", function () {
+                sentAjaxDelet($('input[type="hidden"]').val());
+            })
+
+
+            $('#chart_form').empty();
+
+            $('#refresh_btn').on("click", function () {
+                $('#refresh_btn').addClass('disabled').find('i').addClass('fa-spin');
+                CreateTree(data_init_tree);
+            })
+
+
+
+
+             $("#AddNewMain").on('click', function () {
+                 sentAjax(0);
+                 $("#ParentNo").val("0");
+
+              })
+
+         let jsTree = $('#jstree');
+
+                 //#region Text Search
+            jsTree.on('search.jstree', function (nodes, str, res) {
+                debugger;
+                if (str.nodes.length === 0) {
+                    jsTree.jstree(true).hide_all();
+                    noTree();
+                }
+            })
+            $('#dep-search').keyup(function () {
+                 jsTree.jstree(true).show_all();
+                $('.no-tree').html('')
+                let filter = $(this).val();
+                jsTree.jstree("search", filter);
+            });
+            //#endregion
+
+            @foreach (var item in Model)
+            {
+                <text>
+                data_init_tree.push({ "id": "@item.CatagNo", "parent": "@(item.ParentNo == 0 ? "#" : item.ParentNo.ToString())" , "text": "@item.CatagName" , "icon" : "fa fa-code-fork fa-fw" });
+                </text>
+                //item.Acc_No
+            }
+
+         //
+            CreateTree(data_init_tree);
+
+        })
+
+    </script>
+
+
+    <script>
+        $(document).ready(function () {
+
+            $('input[type="checkbox"]').change(function () {
+                console.log("ssssssss");
+                debugger;
+                if ($('input[type="checkbox"]').is(":checked") == true) {
+                    $('input[type="checkbox"]').val("1");
+                } else {
+                    $('input[type="checkbox"]').val("0");
+                }
+            });
+        })
+    </script>
+}

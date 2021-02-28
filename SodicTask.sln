@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SodicTask", "SodicTask\SodicTask.csproj", "{90B2ABBC-E21A-4991-9640-9DA034FC9447}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{90B2ABBC-E21A-4991-9640-9DA034FC9447}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90B2ABBC-E21A-4991-9640-9DA034FC9447}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90B2ABBC-E21A-4991-9640-9DA034FC9447}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90B2ABBC-E21A-4991-9640-9DA034FC9447}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5574EB2F-D940-40F5-83C3-EF2945CF4BBC}
+	EndGlobalSection
+EndGlobal

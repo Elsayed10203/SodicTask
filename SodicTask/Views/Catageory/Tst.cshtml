@@ -1,0 +1,668 @@
+﻿    <div class="box box-info">
+        <div class="box-header with-border bg-info">
+            <i class="fa fa-fw fa-plus fa-fw" aria-hidden="true"></i>
+            <div class="box-title">اضافة مشروع رئيسي جديد</div>
+        </div>
+
+        <div class="box-body">
+
+            <div class="nav-tabs-custom">
+                <form method="POST" action="https://bejadin.sa/new-bejadin/admin/projects" accept-charset="UTF-8" autocomplete="off">
+                    <input name="_token" type="hidden" value="gkAf9MrZHEK2iP9BKlVEBPaFPUmg1Ny4kVQeUS4q">
+                    <input type="hidden" name="_token" value="gkAf9MrZHEK2iP9BKlVEBPaFPUmg1Ny4kVQeUS4q">
+                    <input type="hidden" name="Cmp_No" value="31">
+                    <input type="hidden" name="Prj_Parnt" value="0">
+                    <ul class="nav nav-tabs">
+                        <li class="active warning">
+                            <a href="#tab_1" data-toggle="tab">البيانات الاساسيه</a>
+                        </li>
+                        <li class="warning">
+                            <a href="#tab_2" data-toggle="tab">الأشخاص المسئولين</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+
+                        <!-- البيانات الاساسية -->
+                        <div class="tab-pane active" id="tab_1">
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="page-header">
+                                        <div class="pull-left">
+                                            <button type="submit" class="btn btn-primary" data-toggle="save" title="حفظ" data-placement="bottom">
+                                                <i class="fa fa-fw fa-floppy-o" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label for="prj_st">تصنيف المشروع</label>
+                                        <div>
+                                            <input class="checkbox-inline" type="radio" name="Level_Status" value="0" id="prj_st" style="margin: 3px;" checked="" disabled="">
+                                            <label readonly="">رئيسي</label>
+                                            <input class="checkbox-inline" type="radio" name="Level_Status" value="1" id="prj_st" style="margin: 3px;" disabled="">
+                                            <label readonly="">فرعي</label>
+                                            <input type="hidden" name="Level_Status" value="0">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4">
+                                    <div class="form-group" style="margin-top: 20px;">
+                                        <input checked="" type="checkbox" class="control-label" name="Prj_Actv" value="1" id="Prj_Actv">
+                                        <label for="Prj_Actv">فعال</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+
+                                        <label for="Prj_No">رقم المشروع</label>
+
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-fw fa-sort-numeric-asc" aria-hidden="true"></i>
+                                            </span>
+                                            <input type="text" name="Prj_No" id="Prj_No" class="form-control" value="31" readonly="">
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <hr>
+
+                            <div class="row">
+                                <div class="col-lg-12">
+
+                                    <div class="form-group ">
+                                        <label for="Prj_NmAr">الإسم AR</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-fw fa-info-circle" aria-hidden="true" style="color: #0b93d5"></i>
+                                            </span>
+                                            <input type="text" name="Prj_NmAr" id="Prj_NmAr" class="form-control" value="">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-12">
+
+                                    <div class="form-group ">
+                                        <label for="Prj_NmEn">الإسم EN</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-fw fa-info-circle" aria-hidden="true" style="color: #0b93d5"></i>
+                                            </span>
+                                            <input type="text" name="Prj_NmEn" id="Prj_NmEn" class="form-control" value="">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="row" id="Costcntr_No">
+                                <div class="col-lg-8">
+                                    <div class="form-group">
+
+                                        <label>مركز التكلفة الرئيسي:</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-fw fa-money" aria-hidden="true" style="color: #0b93d5"></i>
+                                            </span>
+                                            <select name="Costcntr_No" id="cc_type" class="form-control select2 select2-hidden-accessible" data-select2-id="cc_type" tabindex="-1" aria-hidden="true">
+                                                <option value="" data-select2-id="109">اختر...</option>
+                                            </select><span class="select2 select2-container select2-container--default" dir="rtl" data-select2-id="108" style="width: 346px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-cc_type-container"><span class="select2-selection__rendered" id="select2-cc_type-container" role="textbox" aria-readonly="true" title="اختر...">اختر...</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label>رقم مركز التكلفة الفرعي:</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-fw fa-sort-numeric-asc" aria-hidden="true" style="color: #0b93d5"></i>
+                                            </span>
+                                            <input type="text" name="PrjCostcntr_No" id="PrjCostcntr_No" class="form-control" readonly="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-lg-8">
+                                    <div class="form-group">
+                                        <label>العميل:</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-fw fa-user" aria-hidden="true" style="color: #0b93d5"></i>
+                                            </span>
+                                            <select name="Cstm_No" id="Cstm_No" class="form-control select2 select2-hidden-accessible" data-select2-id="Cstm_No" tabindex="-1" aria-hidden="true">
+                                                <option value="" data-select2-id="142">اختر...</option>
+                                                <option value="340001">
+                                                    شركة مام تور
+                                                </option>
+                                                <option value="340002">
+                                                    نوربال تورز
+                                                </option>
+                                                <option value="340003">
+                                                    اسك للسياحه
+                                                </option>
+                                                <option value="340004">
+                                                    الولاء للسياحه
+                                                </option>
+                                                <option value="340005">
+                                                    ميروس فوياج للسياحه
+                                                </option>
+                                                <option value="340006">
+                                                    الشرف للسياحه
+                                                </option>
+                                                <option value="340007">
+                                                    نيو انسايت تورز اند ترافيل
+                                                </option>
+                                                <option value="340008">
+                                                    أمازون ترافيل
+                                                </option>
+                                                <option value="340009">
+                                                    ايلند
+                                                </option>
+                                                <option value="340010">
+                                                    ترافيل ترند
+                                                </option>
+                                                <option value="340011">
+                                                    جولدن ايرا ترافيل
+                                                </option>
+                                                <option value="340012">
+                                                    دلتا الجوي
+                                                </option>
+                                                <option value="340013">
+                                                    هورى زون لخدمات الحج والعمره المحدوده
+                                                </option>
+                                                <option value="340014">
+                                                    الغروشي للعمره
+                                                </option>
+                                                <option value="340015">
+                                                    كاروان خليل
+                                                </option>
+                                                <option value="340016">
+                                                    البجادين باكستان
+                                                </option>
+                                                <option value="340017">
+                                                    الموحد لخدمات الحج والعمره
+                                                </option>
+                                                <option value="340018">
+                                                    وكيل لبنان رقم 1
+                                                </option>
+                                                <option value="340019">
+                                                    وكيل الكويت رقم 1
+                                                </option>
+                                                <option value="340020">
+                                                    NATIONAL TRAVEL  BUREUA
+                                                </option>
+                                                <option value="340021">
+                                                    وكيل فلسطين رقم 1
+                                                </option>
+                                                <option value="340022">
+                                                    وكيل الجزائر
+                                                </option>
+                                                <option value="340023">
+                                                    مركز التوفيق الاسلامي
+                                                </option>
+                                                <option value="340024">
+                                                    اي بي فين اند فين
+                                                </option>
+                                                <option value="340025">
+                                                    شركة كات المحدوده
+                                                </option>
+                                                <option value="340026">
+                                                    دويس للسفر والسياحه
+                                                </option>
+                                                <option value="340027">
+                                                    فت رائت انتر ناشيونال
+                                                </option>
+                                                <option value="340028">
+                                                    الوحده للحج والعمره
+                                                </option>
+                                                <option value="340029">
+                                                    عالم المسانده للسفريات
+                                                </option>
+                                                <option value="340030">
+                                                    ابد  للسفريات والسياحه
+                                                </option>
+                                                <option value="340031">
+                                                    بجادين السودان
+                                                </option>
+                                            </select><span class="select2 select2-container select2-container--default" dir="rtl" data-select2-id="141" style="width: 346px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-Cstm_No-container"><span class="select2-selection__rendered" id="select2-Cstm_No-container" role="textbox" aria-readonly="true" title="اختر...">اختر...</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label>رقم العميل</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-fw fa-sort-numeric-asc" aria-hidden="true" style="color: #0b93d5"></i>
+                                            </span>
+                                            <input type="text" class="form-control" id="customer_no" name="Cstm_No" readonly="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <div class="form-group">
+
+                                        <label>المندوب :</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-fw fa-user" aria-hidden="true" style="color: #0b93d5"></i>
+                                            </span>
+                                            <select name="Slm_No" id="Slm_No" class="form-control select2 select2-hidden-accessible" data-select2-id="Slm_No" tabindex="-1" aria-hidden="true">
+                                                <option value="" data-select2-id="144">اختر...</option>
+
+                                            </select><span class="select2 select2-container select2-container--default" dir="rtl" data-select2-id="143" style="width: 346px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-Slm_No-container"><span class="select2-selection__rendered" id="select2-Slm_No-container" role="textbox" aria-readonly="true" title="اختر...">اختر...</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label>رقم المندوب</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-fw fa-sort-numeric-asc" aria-hidden="true" style="color: #0b93d5"></i>
+                                            </span>
+                                            <input type="text" class="form-control" id="salsman_no" name="Slm_No" readonly="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <div class="form-group">
+                                        <label>المشرف:</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-user" aria-hidden="true" style="color: #0b93d5"></i>
+                                            </span>
+                                            <select name="Mrkt_No" id="Mrkt_No" class="form-control select2 select2-hidden-accessible" data-select2-id="Mrkt_No" tabindex="-1" aria-hidden="true">
+                                                <option value="" data-select2-id="146">اختر...</option>
+
+                                            </select><span class="select2 select2-container select2-container--default" dir="rtl" data-select2-id="145" style="width: 351px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-Mrkt_No-container"><span class="select2-selection__rendered" id="select2-Mrkt_No-container" role="textbox" aria-readonly="true" title="اختر...">اختر...</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label>رقم المشرف</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-sort-numeric-asc" aria-hidden="true" style="color: #0b93d5"></i>
+                                            </span>
+                                            <input type="text" class="form-control" id="mrkt_no" name="Mrkt_No" readonly="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label>عنوان المشروع:</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-fw fa-location-arrow" aria-hidden="true" style="color: #0b93d5"></i>
+                                            </span>
+                                            <input type="text" name="Prj_Adr" id="Prj_Adr" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+
+                                        <label for="Tr_Dt">تاريخ المشروع</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-fw fa-calendar" aria-hidden="true" style="color: #0b93d5"></i>
+                                            </span>
+                                            <input type="text" name="Tr_Dt" id="Tr_Dt" class="form-control" value="2020-10-03">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+
+                                        <label for="Tr_DtAr">الهجري</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-fw fa-calendar" aria-hidden="true" style="color: #0b93d5"></i>
+                                            </span>
+                                            <input type="text" name="Tr_DtAr" id="Tr_DtAr" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+
+                                        <label>الهاتف:</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-fw fa-mobile-phone" aria-hidden="true" style="color: #0b93d5"></i>
+                                            </span>
+                                            <input type="text" name="Prj_Tel" id="Prj_Tel" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+
+                                        <label>الموبايل:</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-fw fa-mobile-phone" aria-hidden="true" style="color: #0b93d5"></i>
+                                            </span>
+                                            <input type="text" name="Prj_Mobile" id="Prj_Mobile" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label for="Prj_Refno">رقم المرجع</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-fw fa-sort-numeric-asc" aria-hidden="true" style="color: #0b93d5"></i>
+                                            </span>
+                                            <input type="text" name="Prj_Refno" id="Prj_Refno" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label for="Prj_Year">سنة المشروع</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-fw fa-sort-numeric-asc" aria-hidden="true" style="color: #0b93d5"></i>
+                                            </span>
+                                            <input type="text" name="Prj_Year" id="Prj_Year" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label for="Prj_Value">قيمة المشروع:</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-fw fa-sort-numeric-asc" aria-hidden="true" style="color: #0b93d5"></i>
+                                            </span>
+                                            <input type="text" name="Prj_Value" id="Prj_Value" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label>الدوله</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-fw fa-flag" aria-hidden="true" style="color: #0b93d5"></i>
+                                            </span>
+                                            <select name="Country_No" id="Country_No" class="form-control select2 select2-hidden-accessible" data-select2-id="Country_No" tabindex="-1" aria-hidden="true">
+                                                <option value="" data-select2-id="149">اختر...</option>
+                                                <option value="1">
+                                                    السعوديه
+                                                </option>
+                                            </select><span class="select2 select2-container select2-container--default" dir="rtl" data-select2-id="148" style="width: 136px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-Country_No-container"><span class="select2-selection__rendered" id="select2-Country_No-container" role="textbox" aria-readonly="true" title="اختر...">اختر...</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label>المدينة</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-fw fa-flag" aria-hidden="true" style="color: #0b93d5"></i>
+                                            </span>
+                                            <select name="City_No" id="City_No" class="form-control select2 select2-hidden-accessible" data-select2-id="City_No" tabindex="-1" aria-hidden="true">
+                                                <option value="" data-select2-id="151">اختر...</option>
+                                            </select><span class="select2 select2-container select2-container--default" dir="rtl" data-select2-id="150" style="width: 136px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-City_No-container"><span class="select2-selection__rendered" id="select2-City_No-container" role="textbox" aria-readonly="true" title="اختر...">اختر...</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label>المنطقه</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-fw fa-flag" aria-hidden="true" style="color: #0b93d5"></i>
+                                            </span>
+                                            <select name="Area_No" id="Area_No" class="form-control select2 select2-hidden-accessible" data-select2-id="Area_No" tabindex="-1" aria-hidden="true">
+                                                <option value="" data-select2-id="153">اختر...</option>
+                                            </select><span class="select2 select2-container select2-container--default" dir="rtl" data-select2-id="152" style="width: 136px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-Area_No-container"><span class="select2-selection__rendered" id="select2-Area_No-container" role="textbox" aria-readonly="true" title="اختر...">اختر...</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+
+                                        <label>فئة المشروع</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-fw fa-info-circle" aria-hidden="true" style="color: #0b93d5"></i>
+                                            </span>
+                                            <select name="Prj_Categ" id="Prj_Categ" class="form-control select2 select2-hidden-accessible" data-select2-id="Prj_Categ" tabindex="-1" aria-hidden="true">
+                                                <option value="" data-select2-id="155">اختر...</option>
+                                            </select><span class="select2 select2-container select2-container--default" dir="rtl" data-select2-id="154" style="width: 241px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-Prj_Categ-container"><span class="select2-selection__rendered" id="select2-Prj_Categ-container" role="textbox" aria-readonly="true" title="اختر...">اختر...</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+
+                                        <label>وضع المشروع</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-fw fa-info-circle" aria-hidden="true" style="color: #0b93d5"></i>
+                                            </span>
+                                            <select name="Prj_Status" id="Prj_Status" class="form-control select2 select2-hidden-accessible" data-select2-id="Prj_Status" tabindex="-1" aria-hidden="true">
+                                                <option value="" data-select2-id="164">اختر...</option>
+                                                <option value="0">تحت الدراسه</option>
+                                                <option value="1">عرض سعر</option>
+                                                <option value="2">مرفوض</option>
+                                                <option value="3">تنفيذ</option>
+                                                <option value="4">تحت التشغيل</option>
+                                                <option value="5">انتهاء المشروع</option>
+                                                <option value="6">الضمان</option>
+                                            </select><span class="select2 select2-container select2-container--default" dir="rtl" data-select2-id="163" style="width: 240px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-Prj_Status-container"><span class="select2-selection__rendered" id="select2-Prj_Status-container" role="textbox" aria-readonly="true" title="اختر...">اختر...</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+
+                                        <label>الفرع</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-fw fa-code-fork" aria-hidden="true" style="color: #0b93d5"></i>
+                                            </span>
+                                            <select name="Brn_No" id="Brn_No" class="form-control select2 select2-hidden-accessible" data-select2-id="Brn_No" tabindex="-1" aria-hidden="true">
+                                                <option value="" data-select2-id="168">اختر...</option>
+                                                <option value="3101">فرع بيجادين للسياحة</option>
+                                                <option value="3102">فرع بيجادين للعمرة</option>
+                                            </select><span class="select2 select2-container select2-container--default" dir="rtl" data-select2-id="167" style="width: 241px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-Brn_No-container"><span class="select2-selection__rendered" id="select2-Brn_No-container" role="textbox" aria-readonly="true" title="اختر...">اختر...</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+
+                                        <label>المستودع</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-fw fa-code-fork" aria-hidden="true" style="color: #0b93d5"></i>
+                                            </span>
+                                            <select name="Dlv_Stor" id="Dlv_Stor" class="form-control select2 select2-hidden-accessible" data-select2-id="Dlv_Stor" tabindex="-1" aria-hidden="true">
+                                                <option value="" data-select2-id="172">اختر...</option>
+                                                <option value="3101">فرع بيجادين للسياحة</option>
+                                                <option value="3102">فرع بيجادين للعمرة</option>
+                                            </select><span class="select2 select2-container select2-container--default" dir="rtl" data-select2-id="171" style="width: 241px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-Dlv_Stor-container"><span class="select2-selection__rendered" id="select2-Dlv_Stor-container" role="textbox" aria-readonly="true" title="اختر...">اختر...</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+
+                                        <label>حساب المصاريف </label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-fw fa-money" aria-hidden="true" style="color: #0b93d5"></i>
+                                            </span>
+                                            <input type="text" name="Acc_DB" id="Acc_DB" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+
+                                        <label>حساب الايرادات </label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-fw fa-money" aria-hidden="true" style="color: #0b93d5"></i>
+                                            </span>
+                                            <input type="text" name="Acc_CR" id="Acc_CR" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+
+                                        <label>أول المده مدين</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-fw fa-money" aria-hidden="true" style="color: #0b93d5"></i>
+                                            </span>
+                                            <input type="text" name="FBal_Db" id="FBal_Db" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+
+                                        <label>أول المده دائن</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-fw fa-money" aria-hidden="true" style="color: #0b93d5"></i>
+                                            </span>
+                                            <input type="text" name="FBal_Cr" id="FBal_Cr" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="tab-pane" id="tab_2">
+                            <div class="row" style="margin-top: 30px;">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="Cntct_Prsn1">الشخص المسئول </label>
+                                        <div style="margin-bottom: 10px;"><input class="form-control" name="Cntct_Prsn1" type="text" id="Cntct_Prsn1"></div>
+                                        <div style="margin-bottom: 10px;"><input class="form-control" name="Cntct_Prsn2" type="text"></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="TitL1">وظيفة المسئول</label>
+                                        <div style="margin-bottom: 10px;"><input class="form-control" name="TitL1" type="text" id="TitL1"></div>
+                                        <div style="margin-bottom: 10px;"><input class="form-control" name="TitL2" type="text"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="Mobile1">موبايل </label>
+                                        <div style="margin-bottom: 10px;"><input class="form-control" name="Mobile1" type="text" id="Mobile1"></div>
+
+                                        <div style="margin-bottom: 10px;"><input class="form-control" name="Mobile2" type="text"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="Email1">ايميل </label>
+                                        <div style="margin-bottom: 10px;"><input class="form-control" name="Email1" type="email" id="Email1"></div>
+
+                                        <div style="margin-bottom: 10px;"><input class="form-control" name="Email2" type="email"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+
+
+        </div>
+    </div>
+
